@@ -1,8 +1,11 @@
 const mongoose = require("mongoose")
 const Document = require("./Document")
 const express = require("express");
+const http = require("http");
+const { Server } = require("socket.io");
 const path = require('path');
 const app = express();
+const httpServer = http.createServer(app);
 
 mongoose.connect("mongodb+srv://mukesh_singh_09:Msr1150935@cluster0.r79zfbk.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -34,10 +37,11 @@ app.listen(port,()=>{
 
 
 
-const io = require("socket.io")(3001, {
+const io = new Server(httpServer, {
   cors: {
     origin: "https://codoc-mukesh.onrender.com",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 })
 
