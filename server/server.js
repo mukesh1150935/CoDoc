@@ -36,7 +36,7 @@ app.listen(port,()=>{
 
 const io = require("socket.io")(3001, {
   cors: {
-    origin: "http://localhost:5000",
+    origin: "https://codoc-mukesh.onrender.com",
     methods: ["GET", "POST"],
   },
 })
