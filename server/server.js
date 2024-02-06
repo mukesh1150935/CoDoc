@@ -4,11 +4,13 @@ const express = require("express");
 const path = require('path');
 const app = express();
 
-mongoose.connect("mongodb://localhost/google-docs-clone", {
+mongoose.connect("mongodb+srv://mukesh_singh_09:Msr1150935@cluster0.r79zfbk.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
   useCreateIndex: true,
+},()=>{
+  console.log("database connection established")
 })
 
 
